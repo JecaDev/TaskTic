@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289402216735",
+    "project_id": "tasktic-3b2b9",
+    "storage_bucket": "tasktic-3b2b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289402216735:android:6401ece47eb75ecaf9d02a",
+        "android_client_info": {
+          "package_name": "com.jean.tasktic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCssHK0pecrUw_lkcTFQGEcBS1QDN6rWzQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

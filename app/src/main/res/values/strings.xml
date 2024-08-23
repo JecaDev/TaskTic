@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TaskTic</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login">Login</string>
+    <string name="senha">Senha</string>
+    <string name="criar_conta">Criar Conta</string>
+    <string name="recuperar_conta">Recuperar Conta</string>
 </resources>
