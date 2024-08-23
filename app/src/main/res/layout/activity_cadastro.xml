@@ -8,43 +8,74 @@
     tools:context=".CadastroActivity">
 
     <EditText
-        android:id="@+id/editEmail"
-        android:layout_height="51dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/e_mail"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editSenha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.86"
-        android:layout_width="0dp"/>
-
-    <EditText
         android:id="@+id/editSenha"
+        android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:autofillHints=""
+        android:background="@drawable/bg_edittext"
         android:ems="10"
         android:hint="@string/senha"
         android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColorHint="#6750A4"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="0dp"/>
+        app:layout_constraintVertical_bias="0.425" />
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="0dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints=""
+        android:background="@drawable/bg_edittext"
+        android:ems="10"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textColorHint="#6750A4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/editSenha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
+
+    <EditText
+        android:id="@+id/editConfirmarSenha"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints=""
+        android:background="@drawable/bg_edittext"
+        android:ems="10"
+        android:hint="@string/confirmar_senha"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textColorHint="#6750A4"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCriarConta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editSenha" />
 
     <ProgressBar
-        android:id="@+id/progressBar2"
+        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateTint="@color/white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,12 +90,31 @@
         android:layout_height="54dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
+        android:background="@drawable/bg_button"
+        android:fontFamily="@font/inter_bold"
         android:text="Criar Conta"
+        android:textSize="20sp"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editSenha"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintVertical_bias="0.303" />
+
+    <TextView
+        android:id="@+id/titleCriarConta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_bold"
+        android:text="Criar Conta"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/editEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

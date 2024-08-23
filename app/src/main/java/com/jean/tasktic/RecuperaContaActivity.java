@@ -1,6 +1,9 @@
 package com.jean.tasktic;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,17 +11,55 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.jean.tasktic.databinding.ActivityRecuperaContaBinding;
+
 public class RecuperaContaActivity extends AppCompatActivity {
+
+    private ActivityRecuperaContaBinding binding;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_recupera_conta);
+        binding = ActivityRecuperaContaBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        mAuth = FirebaseAuth.getInstance();
+
+        binding.btnRecuperarConta.setOnClickListener(v -> validaDados());
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
+        });
+    }
+    private void validaDados() {
+        String email = binding.editEmail.getText().toString().trim();
+
+        if (!email.isEmpty()) {
+            binding.progressBarRecuperaConta.setVisibility(View.VISIBLE);
+            recuperaContaFirebase(email);
+
+        } else {
+            Toast.makeText(this, "Digite o seu E-mail", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+    private void recuperaContaFirebase (String email){
+        mAuth.sendPasswordResetEmail(
+                email
+        ).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(this, "Verifique o seu E-mail", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(new Intent(this, LoginActivity.class));
+            } else {
+
+                binding.progressBarRecuperaConta.setVisibility(View.GONE);
+                Toast.makeText(this, "Ocorreu um erro", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

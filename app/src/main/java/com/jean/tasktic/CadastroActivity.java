@@ -37,15 +37,21 @@ public class CadastroActivity extends AppCompatActivity {
             return insets;
         });
     }
+
         private void validaDados() {
         String email = binding.editEmail.getText().toString().trim();
         String senha = binding.editSenha.getText().toString().trim();
+        String confirmarSenha = binding.editConfirmarSenha.getText().toString().trim();
 
         if (!email.isEmpty()) {
-            if (!senha.isEmpty()){
-                binding.progressBar2.setVisibility(View.VISIBLE);
+            if (!senha.isEmpty() && !confirmarSenha.isEmpty()){
+                if (senha.equals(confirmarSenha)){
+                    binding.progressBar.setVisibility(View.VISIBLE);
 
-                criarContaFirebase(email, senha);
+                    criarContaFirebase(email, senha);
+                }else {
+                    Toast.makeText(this, "As senhas não coicidem", Toast.LENGTH_SHORT).show();
+                }
             }else {
                 Toast.makeText(this, "Digite uma senha", Toast.LENGTH_SHORT).show();
             }
@@ -54,18 +60,19 @@ public class CadastroActivity extends AppCompatActivity {
             Toast.makeText(this, "Digite o seu E-mail", Toast.LENGTH_SHORT).show();
         }
     }
+
     private void criarContaFirebase(String email, String senha){
         mAuth.createUserWithEmailAndPassword(
                 email, senha
         ).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
-
+                Toast.makeText(this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
                 finish();
                 startActivity(new Intent(this, LoginActivity.class));
 
             } else {
 
-                binding.progressBar2.setVisibility(View.GONE);
+                binding.progressBar.setVisibility(View.GONE);
                 Toast.makeText(this, "Ocorreu um erro", Toast.LENGTH_SHORT).show();
             }
         });
