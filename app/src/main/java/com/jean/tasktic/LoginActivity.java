@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-
         binding.textCadastro.setOnClickListener(view -> startActivity(new Intent(this, CadastroActivity.class)));
         binding.textRecuperar.setOnClickListener(view -> startActivity(new Intent(this, RecuperaContaActivity.class)));
     }
